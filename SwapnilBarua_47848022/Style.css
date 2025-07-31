@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #111;
+  background-color: #fff;
+}
+
+/* Header & Navigation */
+header {
+  background: #fff;
+  padding: 20px 40px;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.nav-left,
+.nav-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-left {
+  left: 40px;
+}
+
+.nav-right {
+  right: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.nav-logo {
+  font-family: 'Schoolbell', cursive;
+  font-size: 34px;
+  font-weight: 400;
+  color: #111;
+  user-select: none;
+  letter-spacing: 1px;
+}
+
+.nav-logo:hover {
+  color: rgb(0, 90, 150);
+  cursor: default;
+}
+
+/* Hero Section - Page 1 */
+.hero {
+  height: 1000px;
+  background: url('Photos/Hero.jpg') no-repeat center center;
+  background-size: cover;
+  background-attachment: scroll;
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(130, 130, 130, 0.3);
+  padding: 40px;
+  color: whitesmoke;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  margin-bottom: 12px;
+}
+
+.overlay p {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+
+.button {
+  display: inline-block;
+  background: white;
+  color: #000;
+  padding: 12px 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.button:hover {
+  background: #000;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
+  background-color: #111;
+  color: white;
+}
+
+/* Gallery Page (Page 2) */
+.gallery-container {
+  padding: 80px 0 60px 0;
+  max-width: 100%;
+}
+
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+}
+
+.gallery-grid > img {
+  max-width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.landscape {
+  height: 100%;
+  width: 100%;
+  grid-column: span 2;
+}
+
+.portrait {
+  height: 100%;
+  width: 100%;
+}
+
+/* About Page (Page 3) */
+.about-hero {
+  height: 600px;
+  background: url('Photos/Hero2.jpg') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-overlay {
+  background-color: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  text-align: center;
+  padding: 60px 30px;
+  border-radius: 12px;
+  max-width: 800px;
+}
+
+.about-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+.about-overlay p {
+  font-size: 22px;
+  line-height: 1.5;
+}
+
+.about-intro,
+.about-vision,
+.about-tools {
+  padding: 80px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-intro h2,
+.about-vision h2,
+.about-tools h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.about-intro p,
+.about-vision p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.about-tools ul {
+  list-style: none;
+  padding: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.about-tools li {
+  margin-bottom: 12px;
+}
