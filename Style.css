@@ -95,7 +95,7 @@ nav a {
 
 .overlay h1 {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 4.5vw, 40px);
+  font-size: 28px;
   margin-bottom: 12px;
   word-wrap: break-word;
   max-width: 100%;
