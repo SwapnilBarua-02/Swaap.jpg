@@ -70,7 +70,7 @@ nav a {
 /* Hero Section - Page 1 */
 .hero {
   height: 1000px;
-  background: url('Photos/Hero.JPG') no-repeat center center;
+  background: url('Photos/Hero.jpg') no-repeat center center;
   background-size: cover;
   background-attachment: scroll;
   position: relative;
@@ -89,18 +89,12 @@ nav a {
   width: 90%;
   border-radius: 8px;
   z-index: 10;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 .overlay h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 50px;
+  font-size: 55px;
   margin-bottom: 12px;
-  word-wrap: break-word;
-  max-width: 100%;
-  overflow-wrap: break-word;
-  word-break: break-word;
 }
 
 .overlay p {
@@ -178,7 +172,7 @@ footer {
 /* About Page (Page 3) */
 .about-hero {
   height: 600px;
-  background: url('Photos/Hero2.JPG') no-repeat center center;
+  background: url('Photos/Hero2.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
   display: flex;
