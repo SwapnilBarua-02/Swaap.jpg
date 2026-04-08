@@ -1,85 +1,85 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>About | Swapnil Barua</title>
-
-  <!-- Fonts + CSS -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&family=Schoolbell&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="Style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Swapnil Barua</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Schoolbell&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <nav>
-      <ul class="nav-left">
-        <li><a href="index.html">Home</a></li>
-      </ul>
-      <a href="index.html" class="nav-logo">SwB</a>
-      <ul class="nav-right">
-        <li><a href="Page2.html">Gallery</a></li>
-        <li><a href="Page3.html">BTS</a></li>
-        <li><a href="Page4.html" class="active">About</a></li>
-        <li><a href="Ref.html">Reference</a></li>
-        <button id="theme-toggle" class="theme-btn">🌚</button>
-      </ul>
-    </nav>
-  </header>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
 
-  <!-- HERO SECTION -->
+<header id="site-header" class="scrolled">
+  <nav>
+    <a href="index.html" class="nav-logo">SwB</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Page2.html">Gallery</a></li>
+      <li><a href="Page3.html">BTS</a></li>
+      <li><a href="Page4.html" class="active">About</a></li>
+      <li><a href="Ref.html">Reference</a></li>
+      <li><button id="theme-toggle" class="theme-btn">☽</button></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="about-wrap">
+
+  <!-- Hero -->
   <section class="about-hero">
-    <div class="about-overlay">
-      <h1>About Me</h1>
-      <p>“Capturing moments through my lens, one frame at a time.”</p>
+    <div class="about-hero-text">
+      <h1>Swapnil<br>Barua</h1>
+      <p class="tagline">"Capturing what words sometimes can't."</p>
     </div>
   </section>
 
-  <!-- INTRO -->
-  <section class="about-intro">
-    <h2>Who I Am</h2>
-    <p>Hey! I’m <strong>Swapnil </strong> — a creator, and someone who finds joy in storytelling through images. Whether it’s light, shadows, or fleeting emotions, I try to capture what words sometimes can’t.</p>
-  </section>
+  <!-- Body -->
+  <div class="about-body">
 
-  <!-- VISION -->
-  <section class="about-vision">
-    <h2>What I Do</h2>
-    <p>I explore and try to capture the moments and things that goes unnoticed . My photography blends minimalism with mood — it’s about honesty and emotion rather than perfection. Every photo I take is a reflection of how I see and feel the world at that moment.</p>
-  </section>
+    <div class="about-section" data-reveal>
+      <h2>01 — Who I Am</h2>
+      <p>I'm a creator and IT student based in Sydney, originally from Bangladesh. I find joy in storytelling through images — light, shadow, and the emotions that live between them.</p>
+    </div>
 
-  <!-- TOOLS -->
-  <section class="about-tools">
-    <h2>Gear & Tools</h2>
-    <ul>
-      <li>📷 Sony A7C </li>
-      <li>🎞️ Adobe Lightroom</li>
-      <li>🖥️ VSCO / Instagram</li>
-      <li>📱 iPhone 16 Pro</li>
-      <li> @swapnil_dibyo</li>
-    </ul>
-  </section>
+    <div class="about-section" data-reveal>
+      <h2>02 — What I Do</h2>
+      <p>My photography blends minimalism with mood. It's about honesty over perfection — capturing the moments and textures that go unnoticed. Every frame is a reflection of how I see and feel the world at that moment.</p>
+    </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2025 Swapnil Barua</p>
-  </footer>
+    <div class="about-section full" data-reveal>
+      <h2>03 — Gear & Tools</h2>
+      <div class="tools-grid">
+        <div class="tool-item"><span class="tool-icon">📷</span> Sony A7C</div>
+        <div class="tool-item"><span class="tool-icon">🎞️</span> Adobe Lightroom</div>
+        <div class="tool-item"><span class="tool-icon">📱</span> iPhone 16 Pro</div>
+        <div class="tool-item"><span class="tool-icon">🖥️</span> VSCO / Instagram</div>
+      </div>
+      <p style="margin-top:20px; font-size:14px; color:var(--text-muted); font-family:'DM Mono',monospace;">
+        @swapnil_dibyo
+      </p>
+    </div>
 
-  <!-- DARK MODE SCRIPT -->
-  <script>
-  const themeToggle = document.getElementById("theme-toggle");
-  const currentTheme = localStorage.getItem("theme");
-  if (currentTheme === "dark") {
-    document.body.classList.add("dark-mode");
-    themeToggle.textContent = "🌞";
-  }
-  themeToggle.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-    const isDark = document.body.classList.contains("dark-mode");
-    themeToggle.textContent = isDark ? "🌞" : "🌚";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
-  </script>
+  </div>
+</div>
 
+<footer><p>© 2025 Swapnil Barua</p></footer>
+
+<script>
+const cursor=document.getElementById('cursor'),cursorRing=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+function animateRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;cursorRing.style.left=rx+'px';cursorRing.style.top=ry+'px';requestAnimationFrame(animateRing);}
+animateRing();
+
+const themeToggle=document.getElementById('theme-toggle');
+if(localStorage.getItem('theme')==='light'){document.body.classList.add('light-mode');themeToggle.textContent='○';}
+themeToggle.addEventListener('click',()=>{document.body.classList.toggle('light-mode');const l=document.body.classList.contains('light-mode');themeToggle.textContent=l?'○':'☽';localStorage.setItem('theme',l?'light':'dark');});
+
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('revealed');});},{threshold:0.1});
+document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>

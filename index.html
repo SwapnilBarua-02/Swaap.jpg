@@ -2,144 +2,205 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Swaap.jpg — Exposure Dial</title>
 <link href="Style.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&family=Schoolbell&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Bebas+Neue&family=Schoolbell&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
+<!-- Custom cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<header id="site-header">
   <nav>
-    <ul class="nav-left">
-      <li><a href="index.html">Home</a></li>
-    </ul>
     <a href="index.html" class="nav-logo">SwB</a>
-    <ul class="nav-right">
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="Page2.html">Gallery</a></li>
       <li><a href="Page3.html">BTS</a></li>
       <li><a href="Page4.html">About</a></li>
-      <li><a href="ref.html">Reference</a></li>
-      <button id="theme-toggle" class="theme-btn">🌚</button>
+      <li><a href="Ref.html">Reference</a></li>
+      <li><button id="theme-toggle" class="theme-btn" title="Toggle theme">☽</button></li>
     </ul>
   </nav>
 </header>
 
+<!-- Full-screen flash — lives at body level so it covers everything -->
+<div id="flash"></div>
+
 <section class="hero">
-  <div class="left-side">
+
+  <!-- Full-bleed background photo -->
+  <div class="hero-bg-photo"></div>
+  <img src="Photos/HeroPhoto.jpg" alt="Hero Photo" class="hero-bg-photo"> 
+
+  <!-- Camera floats over the background, left side -->
+  <div class="hero-left">
     <div class="camera-body">
       <img src="Camera/Camera-Body.png" alt="Camera Body" class="camera-image">
-
       <div id="dial" class="shutterspeed-dial"></div>
-      <div class="dial-hint">
-        <img src="Photos/Arrow2.png" alt="Arrow" class="arrow2-hint">
-        <span class="hint-text">Scroll Here</span>
-      </div>
       <div id="shutter-btn" class="shutter-button"></div>
-      <div class="shutter-hint">
-        <span class="hint-text">Click here</span>
-        <img src="Photos/Arrow.png" alt="Arrow" class="arrow-hint">
-      </div>
-      <div id="flash"></div>
 
-      <div id="photo-preview">
-        <div class="photo-overlay">
-          <button id="close-photo" class="photo-btn close-btn">✖</button>
-          <a href="Page2.html" class="photo-btn gallery-btn">Explore Gallery</a>
-        </div>
+      <!-- Hints -->
+      <div class="hint-label hint-shutter">
+        <span style="font-size:11px; letter-spacing:0.05em;">click</span>
+        <img src="Photos/Arrow.png" alt="" class="hint-arrow" style="transform:rotate(150deg)">
+      </div>
+      <div class="hint-label hint-dial">
+        <img src="Photos/Arrow2.png" alt="" class="hint-arrow" style="transform:rotate(250deg)">
+        <span style="font-size:11px; letter-spacing:0.05em;">scroll</span>
       </div>
     </div>
   </div>
 
-  <div class="right-side" id="exposure-box">
-    <h1 class="hero-heading">Play with Light</h1>
-    <p class="herotext">Click once &Rotate the dial to adjust exposure.</p>
-    <p id="exposure-value" class="herotext" style="font-weight:600;">
-    Exposure: 0</p>
-    <a href="Page2.html" class="explore-btn">Explore Gallery</a>
+  <!-- Text panel, right side, semi-transparent over photo -->
+  <div class="hero-right" id="exposure-box">
+    <div class="hero-right-content">
+      <p class="hero-label">Sydney, 2025 — Photography by Swapnil Barua</p>
+      <h1 class="hero-heading">Play with<br><em>Light.</em></h1>
+      <p class="hero-desc">Click the shutter. Rotate the dial.<br>Adjust your exposure and see the world shift.</p>
+
+      <div class="exposure-readout" id="exposure-readout">
+        <span id="exposure-value">EV +0.0</span>
+        <div class="exposure-bar">
+          <div class="exposure-bar-fill" id="exposure-fill"></div>
+        </div>
+      </div>
+
+      <a href="Page2.html" class="explore-btn">Explore Gallery</a>
+    </div>
   </div>
+
 </section>
+
+<!-- Photo preview overlay -->
+<div id="photo-preview">
+  <div class="photo-overlay">
+    <button id="close-photo" class="photo-btn close-btn">✕ close</button>
+    <a href="Page2.html" class="photo-btn gallery-btn">View Gallery →</a>
+  </div>
+</div>
 
 <footer>
   <p>© 2025 Swapnil Barua</p>
 </footer>
 
 <script>
+/* ── CURSOR ── */
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
 
-/* ---------- SHUTTER DIAL ---------- */
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top  = my + 'px';
+});
 
-const dial = document.getElementById('dial');
+function animateRing() {
+  rx += (mx - rx) * 0.12;
+  ry += (my - ry) * 0.12;
+  cursorRing.style.left = rx + 'px';
+  cursorRing.style.top  = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
+
+/* ── HEADER SCROLL ── */
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 10);
+});
+header.classList.add('scrolled');
+
+/* ── THEME ── */
+const themeToggle = document.getElementById('theme-toggle');
+const saved = localStorage.getItem('theme');
+if (saved === 'light') {
+  document.body.classList.add('light-mode');
+  themeToggle.textContent = '○';
+}
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+  const light = document.body.classList.contains('light-mode');
+  themeToggle.textContent = light ? '○' : '☽';
+  localStorage.setItem('theme', light ? 'light' : 'dark');
+});
+
+/* ── DIAL / EXPOSURE ── */
+const dial        = document.getElementById('dial');
 const exposureBox = document.getElementById('exposure-box');
-const exposureText = document.getElementById('exposure-value');
-const clickSound = new Audio('Camera/Dial.mp3');
-clickSound.volume = 0.4;
+const heroBg      = document.querySelector('.hero > .hero-bg-photo');
+const expText     = document.getElementById('exposure-value');
+const expFill     = document.getElementById('exposure-fill');
+const clickSound  = new Audio('Camera/Dial.mp3');
+clickSound.volume = 0.35;
 
-let exposure = 0;
-let rotation = 0;
+let exposure = 0, rotation = 0;
 
 dial.addEventListener('wheel', e => {
   e.preventDefault();
-  rotation += e.deltaY > 0 ? 2 : -2;
+  const dir = e.deltaY > 0 ? 1 : -1;
+  rotation += dir * 3;
   dial.style.transform = `rotate(${rotation}deg)`;
 
-  exposure = Math.max(-5, Math.min(5, exposure + (e.deltaY > 0 ? .0625 : -.0625)));
-  exposureText.textContent = `Exposure: ${exposure.toFixed(1)}`;
+  exposure = Math.max(-5, Math.min(5, exposure + dir * 0.0625));
+  const sign = exposure >= 0 ? '+' : '';
+  expText.textContent = `EV ${sign}${exposure.toFixed(1)}`;
+
+  // Update exposure bar
+  const pct = ((exposure + 5) / 10) * 100;
+  expFill.style.width = pct + '%';
+
+  if (exposure > 2) expFill.style.background = 'linear-gradient(90deg, #c9533a, #e8824a)';
+  else if (exposure < -2) expFill.style.background = 'linear-gradient(90deg, #2255aa, #4488cc)';
+  else expFill.style.background = 'linear-gradient(90deg, var(--accent2), var(--accent))';
+
+  // Affect the full-bleed background photo brightness
+  const br = 1 + exposure * 0.18;
+  if (heroBg) {
+    heroBg.style.filter = `brightness(${br})`;
+    heroBg.style.opacity = Math.max(0.05, Math.min(0.5, 0.35 + exposure * 0.04));
+  }
+
   clickSound.currentTime = 0;
-  clickSound.play();
+  clickSound.play().catch(() => {});
+}, { passive: false });
 
-  const brightness = 1 + exposure * 0.15;
-  exposureBox.style.filter = `brightness(${brightness})`;
-});
-
-/* ---------- SHUTTER BUTTON + FLASH ---------- */
-const shutterBtn = document.getElementById('shutter-btn');
-const flash = document.getElementById('flash');
-const photoPreview = document.getElementById('photo-preview');
-const closePhoto = document.getElementById('close-photo');
-const shutterSound = new Audio('Camera/ShutterClick.wav');
+/* ── SHUTTER ── */
+const shutterBtn    = document.getElementById('shutter-btn');
+const flash         = document.getElementById('flash');
+const photoPreview  = document.getElementById('photo-preview');
+const closePhoto    = document.getElementById('close-photo');
+const shutterSound  = new Audio('Camera/ShutterClick.wav');
 shutterSound.volume = 0.6;
 
 const galleryImages = [
-  'Photos/Used/Photos1.JPG', 'Photos/Used/Photos2.JPG', 'Photos/Used/Photos3.JPG',
-  'Photos/Used/Photos4.JPG', 'Photos/Used/Photos5.JPG', 'Photos/Used/Photos6.JPG',
-  'Photos/Used/Photos7.JPG', 'Photos/Used/Photos8.JPG', 'Photos/Used/Photos9.JPG',
+  'Photos/Used/Photos1.JPG',  'Photos/Used/Photos2.JPG',  'Photos/Used/Photos3.JPG',
+  'Photos/Used/Photos4.JPG',  'Photos/Used/Photos5.JPG',  'Photos/Used/Photos6.JPG',
+  'Photos/Used/Photos7.JPG',  'Photos/Used/Photos8.JPG',  'Photos/Used/Photos9.JPG',
   'Photos/Used/Photos10.JPG'
 ];
 
+shutterBtn.classList.add('glow');
+
 shutterBtn.addEventListener('click', () => {
   shutterSound.currentTime = 0;
-  shutterSound.play();
+  shutterSound.play().catch(() => {});
 
+  flash.classList.remove('active');
+  void flash.offsetWidth; // reflow
   flash.classList.add('active');
-  setTimeout(() => flash.classList.remove('active'), 500);
 
-  const randomImage = galleryImages[Math.floor(Math.random() * galleryImages.length)];
-  photoPreview.style.backgroundImage = `url(${randomImage})`;
+  const img = galleryImages[Math.floor(Math.random() * galleryImages.length)];
+  photoPreview.style.backgroundImage = `url(${img})`;
   photoPreview.classList.add('show');
+  flash.addEventListener('animationend', () => flash.classList.remove('active'), { once: true });
 });
 
-closePhoto.addEventListener('click', () => {
-  photoPreview.classList.remove('show');
-});
-
-document.querySelector('.shutter-button').classList.add('glow');
-
-/* ---------- THEME TOGGLE ---------- */
-
-const themeToggle = document.getElementById("theme-toggle");
-const currentTheme = localStorage.getItem("theme");
-
-if (currentTheme === "dark") {
-  document.body.classList.add("dark-mode");
-  themeToggle.textContent = "🌞";
-}
-
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  const isDark = document.body.classList.contains("dark-mode");
-  themeToggle.textContent = isDark ? "🌞" : "🌚";
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-});
+closePhoto.addEventListener('click', () => photoPreview.classList.remove('show'));
 </script>
 
 </body>
