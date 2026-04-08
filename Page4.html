@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>About | Swapnil Barua</title>
+
+  <!-- Fonts + CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&family=Schoolbell&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <ul class="nav-left">
+        <li><a href="index.html">Home</a></li>
+      </ul>
+      <a href="index.html" class="nav-logo">SwB</a>
+      <ul class="nav-right">
+        <li><a href="Page2.html">Gallery</a></li>
+        <li><a href="Page3.html">BTS</a></li>
+        <li><a href="Page4.html" class="active">About</a></li>
+        <li><a href="Ref.html">Reference</a></li>
+        <button id="theme-toggle" class="theme-btn">🌚</button>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="about-hero">
+    <div class="about-overlay">
+      <h1>About Me</h1>
+      <p>“Capturing moments through my lens, one frame at a time.”</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="about-intro">
+    <h2>Who I Am</h2>
+    <p>Hey! I’m <strong>Swapnil </strong> — a creator, and someone who finds joy in storytelling through images. Whether it’s light, shadows, or fleeting emotions, I try to capture what words sometimes can’t.</p>
+  </section>
+
+  <!-- VISION -->
+  <section class="about-vision">
+    <h2>What I Do</h2>
+    <p>I explore and try to capture the moments and things that goes unnoticed . My photography blends minimalism with mood — it’s about honesty and emotion rather than perfection. Every photo I take is a reflection of how I see and feel the world at that moment.</p>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="about-tools">
+    <h2>Gear & Tools</h2>
+    <ul>
+      <li>📷 Sony A7C </li>
+      <li>🎞️ Adobe Lightroom</li>
+      <li>🖥️ VSCO / Instagram</li>
+      <li>📱 iPhone 16 Pro</li>
+      <li> @swapnil_dibyo</li>
+    </ul>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Swapnil Barua</p>
+  </footer>
+
+  <!-- DARK MODE SCRIPT -->
+  <script>
+  const themeToggle = document.getElementById("theme-toggle");
+  const currentTheme = localStorage.getItem("theme");
+  if (currentTheme === "dark") {
+    document.body.classList.add("dark-mode");
+    themeToggle.textContent = "🌞";
+  }
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    themeToggle.textContent = isDark ? "🌞" : "🌚";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+  </script>
+
+</body>
+</html>

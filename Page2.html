@@ -1,74 +1,165 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Gallery | Swapnil Barua</title>
-
-  <link rel="stylesheet" href="Style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&family=Schoolbell&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Gallery | Swapnil Barua</title>
+<link rel="stylesheet" href="Style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter&family=Schoolbell&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <header>
+<header>
     <nav>
       <ul class="nav-left">
         <li><a href="index.html">Home</a></li>
       </ul>
-      <a href="index.html" class="nav-logo">SwB </a>
+      <a href="index.html" class="nav-logo">SwB</a>
       <ul class="nav-right">
         <li><a href="Page2.html">Gallery</a></li>
-        <li><a href="Page3.html">About</a></li>
+        <li><a href="Page3.html">BTS</a></li>
+        <li><a href="Page4.html">About</a></li>
         <li><a href="ref.html">Reference</a></li>
+        <button id="theme-toggle" class="theme-btn">🌚</button>
       </ul>
     </nav>
   </header>
 
-  <main class="gallery-container">
-    <h1 class="gallery-title">Gallery</h1>
-    <div class="gallery-grid">
-  <img src="Photos/Used/Photos1.JPG" alt="Photo 1">
-  <img src="Photos/Used/Photos2.JPG" class="landscape" alt="Photo 2">
-  <img src="Photos/Used/Photos3.JPG" class="portrait" alt="Photo 3">
-  <img src="Photos/Used/Photos4.JPG" class="portrait" alt="Photo 4">
-  <img src="Photos/Used/Photos5.JPG" class="portrait" alt="Photo 5">
-  <img src="Photos/Used/Photos6.JPG" alt="Photo 6">
-  <img src="Photos/Used/Photos7.JPG" class="landscape" alt="Photo 7">
-  <img src="Photos/Used/Photos8.JPG" class="portrait" alt="Photo 8">
-  <img src="Photos/Used/Photos9.JPG" class="landscape" alt="Photo 9">
-  <img src="Photos/Used/Photos10.JPG" alt="Photo 10">
-  <img src="Photos/Used/Photos11.JPG" class="portrait" alt="Photo 11">
-  <img src="Photos/Used/Photos12.JPG" class="portrait" alt="Photo 12">
-  <img src="Photos/Used/Photos13.JPG" alt="Photo 13">
-  <img src="Photos/Used/Photos14.JPG" class="portrait" alt="Photo 14">
-  <img src="Photos/Used/Photos15.JPG" class="landscape" alt="Photo 15">
-  <img src="Photos/Used/Photos16.JPG" class="portrait" alt="Photo 16">
-  <img src="Photos/Used/Photos17.JPG" alt="Photo 17">
-  <img src="Photos/Used/Photos18.JPG" class="landscape" alt="Photo 18">
-  <img src="Photos/Used/Photos19.JPG" alt="Photo 19">
-  <img src="Photos/Used/Photos20.JPG" alt="Photo 20">
-  <img src="Photos/Used/Photos21.JPG" class="portrait" alt="Photo 21">
-  <img src="Photos/Used/Photos22.JPG" class="portrait" alt="Photo 22">
-  <img src="Photos/Used/Photos23.JPG" class="portrait" alt="Photo 23">
-  <img src="Photos/Used/Photos24.JPG" class="portrait" alt="Photo 24">
-  <img src="Photos/Used/Photos25.JPG" alt="Photo 25">
-  <img src="Photos/Used/Photos26.JPG" alt="Photo 26">
-  <img src="Photos/Used/Photos27.JPG" alt="Photo 27">
-  <img src="Photos/Used/Photos28.JPG" class="landscape" alt="Photo 28">
-  <img src="Photos/Used/Photos29.JPG" alt="Photo 29">
-  <img src="Photos/Used/Photos30.JPG" class="landscape" alt="Photo 30">
-  <img src="Photos/Used/Photos31.JPG" class="portrait" alt="Photo 31">
-  <img src="Photos/Used/Photos32.JPG" class="portrait" alt="Photo 32">
-  <img src="Photos/Used/Photos33.JPG" class="portrait" alt="Photo 33">
-  <img src="Photos/Used/Photos34.JPG" class="landscape" alt="Photo 34">
-  <img src="Photos/Used/Photos35.JPG" class="portrait" alt="Photo 35">
-  <img src="Photos/Used/Photos36.JPG" class="landscape" alt="Photo 36">
-</div>
-  </main>
+<main class="gallery-container">
+  <h1 class="gallery-title">Gallery</h1>
 
-  <footer>
-    <p>© 2025 Swapnil Barua</p>
-  </footer>
+  <div class="gallery-grid">
+    <img src="Photos/Used/Photos1.JPG" class="portrait" alt="Photo 1" data-caption="The quiet start of the morning — soft light through my window.">
+    <img src="Photos/Used/Photos2.JPG" class="landscape" alt="Photo 2" data-caption="Sydney streets right before sunset — a golden calm before rush hour.">
+    <img src="Photos/Used/Photos3.JPG" class="portrait" alt="Photo 3" data-caption="The kind of portrait that doesn’t need words — just stillness.">
+    <img src="Photos/Used/Photos4.JPG" class="portrait" alt="Photo 4" data-caption="Old walls and new stories — light reflecting off faded paint.">
+    <img src="Photos/Used/Photos5.JPG" class="portrait" alt="Photo 5" data-caption="Late afternoon glow — the world slowing down for a minute.">
+    <img src="Photos/Used/Photos6.JPG" class="portrait" alt="Photo 6" data-caption="A moment between chaos — soft shadows on brick.">
+    <img src="Photos/Used/Photos7.JPG" class="landscape" alt="Photo 7" data-caption="Movement and blur — chasing rhythm through light.">
+    <img src="Photos/Used/Photos8.JPG" class="portrait" alt="Photo 8" data-caption="A portrait caught between emotion and expression.">
+    <img src="Photos/Used/Photos9.JPG" class="landscape" alt="Photo 9" data-caption="Reflections of the city — layers of glass and sky.">
+    <img src="Photos/Used/Photos10.JPG" class="portrait" alt="Photo 10" data-caption="The small corners that hold more stories than they show.">
+    <img src="Photos/Used/Photos11.JPG" class="portrait" alt="Photo 11" data-caption="Soft contrast — the moment where light meets shadow.">
+    <img src="Photos/Used/Photos12.JPG" class="portrait" alt="Photo 12" data-caption="Somewhere between candid and composed.">
+    <img src="Photos/Used/Photos13.JPG" class="portrait" alt="Photo 13" data-caption="The still air after rain — soft tones and muted skies.">
+    <img src="Photos/Used/Photos14.JPG" class="portrait" alt="Photo 14" data-caption="Portrait of calm — everything else fades in the frame.">
+    <img src="Photos/Used/Photos15.JPG" class="landscape" alt="Photo 15" data-caption="Ocean and horizon blending into a single thought.">
+    <img src="Photos/Used/Photos16.JPG" class="portrait" alt="Photo 16" data-caption="Lines, depth, and the patience of a single frame.">
+    <img src="Photos/Used/Photos17.JPG" class="portrait" alt="Photo 17" data-caption="Warm tones of dusk — ordinary streets turned cinematic.">
+    <img src="Photos/Used/Photos18.JPG" class="landscape" alt="Photo 18" data-caption="Distant clouds rolling over the horizon — motion in stillness.">
+    <img src="Photos/Used/Photos19.JPG" class="portrait" alt="Photo 19" data-caption="A quiet face, a strong gaze — the beauty of not performing.">
+    <img src="Photos/Used/Photos20.JPG" class="portrait" alt="Photo 20" data-caption="Lines of light through blinds — morning simplicity.">
+    <img src="Photos/Used/Photos21.JPG" class="portrait" alt="Photo 21" data-caption="Everyday architecture, reframed in silence.">
+    <img src="Photos/Used/Photos22.JPG" class="portrait" alt="Photo 22" data-caption="Soft highlights and shadows, like rhythm and pause.">
+    <img src="Photos/Used/Photos23.JPG" class="portrait" alt="Photo 23" data-caption="Texture over perfection — a frame that breathes.">
+    <img src="Photos/Used/Photos24.JPG" class="portrait" alt="Photo 24" data-caption="Captured light spilling across the corner of a table.">
+    <img src="Photos/Used/Photos25.JPG" class="portrait" alt="Photo 25" data-caption="Quiet reflections of a familiar place — home, maybe.">
+    <img src="Photos/Used/Photos26.JPG" class="portrait" alt="Photo 26" data-caption="The edges of a shadow — form dissolving into tone.">
+    <img src="Photos/Used/Photos27.JPG" class="portrait" alt="Photo 27" data-caption="Portraits of still air — the kind that hums softly.">
+    <img src="Photos/Used/Photos28.JPG" class="landscape" alt="Photo 28" data-caption="Evening light over the horizon — everything fades warm.">
+    <img src="Photos/Used/Photos29.JPG" class="portrait" alt="Photo 29" data-caption="Lines, shapes, repetition — order hiding in chaos.">
+    <img src="Photos/Used/Photos30.JPG" class="landscape" alt="Photo 30" data-caption="A long exposure of time itself — roads, lights, motion.">
+    <img src="Photos/Used/Photos31.JPG" class="portrait" alt="Photo 31" data-caption="Faces in passing — those we see but never meet.">
+    <img src="Photos/Used/Photos32.JPG" class="portrait" alt="Photo 32" data-caption="Captured while walking home — that half-dream feeling.">
+    <img src="Photos/Used/Photos33.JPG" class="portrait" alt="Photo 33" data-caption="Subtle light, quiet story — simplicity framed.">
+    <img src="Photos/Used/Photos34.JPG" class="landscape" alt="Photo 34" data-caption="The long road ahead — framed by trees and memory.">
+    <img src="Photos/Used/Photos35.JPG" class="portrait" alt="Photo 35" data-caption="Mood over detail — blur that feels intentional.">
+    <img src="Photos/Used/Photos36.JPG" class="landscape" alt="Photo 36" data-caption="Distant view, infinite calm — this one just felt right.">
+  </div>
+</main>
+
+<footer>
+  <p>© 2025 Swapnil Barua</p>
+</footer>
+
+<!-- Lightbox Viewer -->
+
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-image" src="" alt="Preview">
+  <p class="lightbox-caption"></p>
+  <button class="lightbox-prev">&#10094;</button>
+  <button class="lightbox-next">&#10095;</button>
+</div>
+
+<script>
+
+/* ---------- Theme Toggle ---------- */
+
+const themeToggle = document.getElementById("theme-toggle");
+const currentTheme = localStorage.getItem("theme");
+if (currentTheme === "dark") {
+  document.body.classList.add("dark-mode");
+  themeToggle.textContent = "🌞";
+}
+themeToggle.addEventListener("click", () => {
+  document.body.classList.toggle("dark-mode");
+  const isDark = document.body.classList.contains("dark-mode");
+  themeToggle.textContent = isDark ? "🌞" : "🌚";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
+});
+
+/* ---------- Lightbox Function ---------- */
+
+const images = document.querySelectorAll('.gallery-grid img');
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('.lightbox-image');
+const captionBox = document.querySelector('.lightbox-caption');
+const closeBtn = document.querySelector('.close');
+const nextBtn = document.querySelector('.lightbox-next');
+const prevBtn = document.querySelector('.lightbox-prev');
+
+let currentIndex = 0;
+
+function showImage(index) {
+  const img = images[index];
+  lightboxImg.src = img.src;
+  captionBox.textContent = img.dataset.caption || '';
+}
+
+// Open lightbox
+images.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    currentIndex = index;
+    lightbox.style.display = 'flex';
+    showImage(currentIndex);
+  });
+});
+
+// Close lightbox
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+// Navigation
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+});
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') lightbox.style.display = 'none';
+  if (e.key === 'ArrowRight') {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+  if (e.key === 'ArrowLeft') {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
+});
+
+// Close when clicking outside image
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) lightbox.style.display = 'none';
+});
+</script>
 
 </body>
 </html>
